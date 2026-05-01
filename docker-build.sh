@@ -5,6 +5,9 @@ DOCKERREGISTRY=hub.mintello.com
 IMAGENAME=sist2
 # --------------------------------
 
+echo " WARNING !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! "
+echo " First time start : git submodule update --init --recursive"
+echo " !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! "
 
 # Tag & Build for prod
 CURVERSION=$(curl -sX GET https://p5:Mintello4fun@$DOCKERREGISTRY/v2/$IMAGENAME/tags/list | jq -r '.tags[-2]')
