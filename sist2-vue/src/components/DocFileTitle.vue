@@ -1,5 +1,5 @@
 <template>
-    <a :href="`f/${sid(doc)}`"
+    <a :href="linkUrl()"
        :class="doc._source.embedding ? 'file-title-anchor-with-embedding' : 'file-title-anchor'" target="_blank">
         <div class="file-title" :title="doc._source.path + '/' + doc._source.name + ext(doc)"
              v-html="fileName() + ext(doc)"></div>
@@ -15,6 +15,15 @@ export default {
     methods: {
         sid: sid,
         ext: ext,
+        linkUrl() {
+            const extension = this.ext(this.doc).toLowerCase();
+            const relativeLink = `f/${this.sid(this.doc)}`;
+            if (extension === '.eml') {
+                const absoluteLink = window.location.origin + '/' + relativeLink;
+                return 'https://eml.scope/?url=' + encodeURIComponent(absoluteLink);
+            }
+            return relativeLink;
+        },
         fileName() {
             if (!this.doc.highlight) {
                 return this.doc._source.name;
