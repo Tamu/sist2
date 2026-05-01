@@ -83,7 +83,6 @@ find_package(libgit2 CONFIG REQUIRED)
 
 target_include_directories(
         sist2 PUBLIC
-        ${CMAKE_SOURCE_DIR}/third-party/onion/src/
         ${CMAKE_SOURCE_DIR}/third-party/utf8.h/
         ${CMAKE_SOURCE_DIR}/third-party/libscan/
         ${CMAKE_SOURCE_DIR}/

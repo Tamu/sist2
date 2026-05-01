@@ -1,4 +1,4 @@
-FROM sist2app/sist2-build as build
+FROM sist2app/sist2-build AS build
 
 WORKDIR /build/
 
@@ -17,10 +17,10 @@ RUN mkdir build && cd build && cmake -DSIST_PLATFORM=x64_linux_docker -DSIST_DEB
 RUN cd build && make -j$(nproc)
 RUN strip build/sist2 || mv build/sist2_debug build/sist2
 
-FROM --platform="linux/amd64" ubuntu@sha256:965fbcae990b0467ed5657caceaec165018ef44a4d2d46c7cdea80a9dff0d1ea
+FROM ubuntu@sha256:965fbcae990b0467ed5657caceaec165018ef44a4d2d46c7cdea80a9dff0d1ea
 
-ENV LANG C.UTF-8
-ENV LC_ALL C.UTF-8
+ENV LANG=C.UTF-8
+ENV LC_ALL=C.UTF-8
 
 ENTRYPOINT ["/root/sist2"]
 
