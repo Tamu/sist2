@@ -21,6 +21,12 @@ export default {
             if (extension === '.eml') {
                 const absoluteLink = window.location.origin + '/' + relativeLink;
                 return 'https://eml.scope/?url=' + encodeURIComponent(absoluteLink);
+            } else if (extension === '.docx') {
+                const absoluteLink = window.location.origin + '/' + relativeLink;
+                return 'https://docx.scope/?url=' + encodeURIComponent(absoluteLink);
+            } else if (extension === '.xlsx') {
+                const absoluteLink = window.location.origin + '/' + relativeLink;
+                return 'https://xlsx.scope/?url=' + encodeURIComponent(absoluteLink);
             }
             return relativeLink;
         },
